@@ -29,8 +29,14 @@ docker stop
 docker image inspect rabbitmq | jq -r '.[0].RootFS'
 docker image inspect ubuntu | jq -r '.[0].RootFS'
 
+# DEMO curl
+docker build -f kurl/Dockerfile -t paulopez/kurl:0.1 .
+
 
 # DEMO dotnet
 rm -rf ./build
 dotnet publish votingapp -o ./build
 docker build -f votingapp/Dockerfile -t paulopez/votingapp:0.1 .
+
+docker run paulopez/votingapp:0.1
+docker run -it paulopez/kurl:0.1
