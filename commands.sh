@@ -86,6 +86,10 @@ docker push paulopez/votingapp:0.1
 ./build.sh 0.2
 
 #--------------------- DEMO 7: docker networking ---------------------------------
-docker run paulopez/votingapp:0.1
-docker run -it paulopez/kurl:0.1
-curl 172.17.0.2/api/voting
+docker run --name votingapp paulopez/votingapp:0.1
+docker inspect votingapp | jq -r '.[0].NetworkSettings.Networks.bridge.IPAddress'
+
+docker run paulopez/kurl:0.1 172.17.0.2:5000/api/voting
+
+docker run -it --entrypoint=bash paulopez/kurl:0.1
+curl 172.17.0.2:5000/api/voting
