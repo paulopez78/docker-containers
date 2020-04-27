@@ -45,12 +45,12 @@ docker run -d nginx
 
 # ---------------------- DEMO 4: Layers --------------------------------------------
 ./cleanup.sh
-docker pull rabbitmq
-docker image inspect rabbitmq | jq -r '.[0].RootFS'
-docker history rabbitmq
-
+docker pull rabbitmq:3.8
 docker pull ubuntu:18.04   
-docker image inspect ubuntu | jq -r '.[0].RootFS'
+
+docker image inspect rabbitmq:3.8
+docker history rabbitmq
+docker image inspect ubuntu:18.04
 docker history ubuntu
 
 # ---------------------- DEMO 5: Docker build--------------------------------------
