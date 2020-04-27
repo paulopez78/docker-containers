@@ -1,0 +1,9 @@
+#!/bin/sh
+
+location=$1
+
+if [ -z "$location" ]; then
+    curl wttr.in --silent
+else
+    curl wttr.in/"$location" --silent
+fi
