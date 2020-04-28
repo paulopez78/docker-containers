@@ -53,6 +53,9 @@ docker history rabbitmq
 docker image inspect ubuntu:18.04
 docker history ubuntu
 
+docker system df 
+docker images
+
 # ---------------------- DEMO 5: Docker build--------------------------------------
 # writable layer curl
 docker run -it ubuntu:18.04
